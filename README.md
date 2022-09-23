@@ -1,7 +1,7 @@
-# livinginhotel-front-v2
+# Next.js 템플릿
 
 - &copy;travelmakers
-- Author: [Hangyeol Noh](https://github.com/zuiderzee7), [Gidong Seong](https://github.com/sgd122)
+- Author: [Gidong Seong](https://github.com/sgd122)
 
 ## 프로젝트 구성
 
