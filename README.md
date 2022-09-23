@@ -3,11 +3,6 @@
 - &copy;travelmakers
 - Author: [Gidong Seong](https://github.com/sgd122)
 
-## 프로젝트 구성
-
-```bash
-```
-
 ## Development
 
 ```bash
