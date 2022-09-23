@@ -1,4 +1,4 @@
-# Next.js 템플릿
+# Next.js 보일러 플레이트
 
 - &copy;travelmakers
 - Author: [Gidong Seong](https://github.com/sgd122)
