@@ -3,6 +3,7 @@
 - &copy;travelmakers
 - Author: [Gidong Seong](https://github.com/sgd122)
 
+
 ## Development
 
 ```bash
@@ -72,6 +73,10 @@ yarn dev
 | 🏦    | `:bank:`           | **일반 데이터베이스** 별 (마이그레이션, 스크립트, 확장명 등)                                                       |
 | 🐳    | `:whale:`          | **도커** 구성                                                                                                      |
 | 🤝    | `:handshake:`      | **파일을 병합** 할 때                                                                                              |
+
+## Reference
+
+<https://beta.nextjs.org/docs>
 
 ## License
 

@@ -33,6 +33,18 @@
     "import"
   ],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "useRecoilCallback"
+      }
+    ],
+    "react/jsx-no-useless-fragment": 0,
+    "import/order": 0,
+    "import/prefer-default-export": "off",
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
     "arrow-body-style": "error",
     "prefer-arrow-callback": "off",
     "no-var": "error",
