@@ -1,7 +1,7 @@
 import React from 'react';
 
 async function getData() {
-  const res = await fetch('https://api.sampleapis.com/coffee/iced11');
+  const res = await fetch('https://api.sampleapis.com/coffee/iced');
   return res.json();
 }
 

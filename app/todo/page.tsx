@@ -6,13 +6,13 @@ interface TodoProps {
   completed: boolean;
 }
 
-const getTodos = async () => {
+async function getTodos() {
   const res = await fetch('http://localhost:3000/api/todos');
   const todos: TodoProps[] = await res.json();
   return todos;
-};
+}
 
-export default async function Page() {
+const Page = async () => {
   const todos = await getTodos();
   return (
     <ul>
@@ -21,4 +21,6 @@ export default async function Page() {
       ))}
     </ul>
   );
-}
+};
+
+export default Page;
