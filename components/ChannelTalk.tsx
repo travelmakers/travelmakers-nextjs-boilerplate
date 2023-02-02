@@ -10,8 +10,11 @@ export const bootChanneltalk = (option: Record<string, any>) => {
   window.ChannelIO('boot', option);
 };
 
-const ChannelTalk = () => (
-  <Script id="channel-talk">{channelTalkScript}</Script>
-);
+const ChannelTalk = () => {
+  if (process.env.NEXT_PUBLIC_CHANNELTALK_PLUGIN_KEY)
+    return <Script id="channel-talk">{channelTalkScript}</Script>;
+
+  return <></>;
+};
 
 export default ChannelTalk;
