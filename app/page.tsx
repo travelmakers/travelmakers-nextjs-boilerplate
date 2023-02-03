@@ -1,3 +1,4 @@
+import Image from '@/components/Image';
 import React from 'react';
 
 import { Container } from './styles';
@@ -27,6 +28,13 @@ const Page = async () => {
 
   return (
     <Container>
+      sgd: {process.env.NEXT_PUBLIC_BASE_URL}
+      <Image
+        src="/resource/main/banners/20230120/web/zzZKimZpn6EYWQ4irQJhmEG5ZI2R6UGjNPdeK7FP.jpg"
+        width={500}
+        height={500}
+        alt="11"
+      />
       <Coffee />
     </Container>
   );

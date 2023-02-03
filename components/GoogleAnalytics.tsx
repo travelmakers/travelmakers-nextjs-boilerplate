@@ -64,7 +64,9 @@ const GoogleAnalytics = () => {
           {gaScript}
         </Script>
       </>
-    ) : null
+    ) : (
+      <></>
+    )
   );
 };
 
