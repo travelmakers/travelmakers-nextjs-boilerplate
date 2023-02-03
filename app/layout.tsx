@@ -20,7 +20,7 @@ const RootLayout: React.FC<Props> = ({ children }) => (
   >
     <head />
     <body className={`${pretendardFont.className} ${notoSerifFont.className}`}>
-      <Recoil>
+      <Recoil locale="ko-KR">
         <ReactQuery>
           <StyledComponent>
             <StyledComponentsRegistry>
