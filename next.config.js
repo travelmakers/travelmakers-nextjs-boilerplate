@@ -1,5 +1,3 @@
-// const { createSecureHeaders } = require('next-secure-headers');
-
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
@@ -18,5 +16,21 @@ module.exports = {
         ],
       },
     ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'd2pyzcqibfhr70.cloudfront.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hotel-01.s3.ap-northeast-2.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };

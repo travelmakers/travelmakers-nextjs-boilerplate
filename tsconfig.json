@@ -20,7 +20,9 @@
       "@/lib/*": ["lib/*"],
       "@/types/*": ["types/*"],
       "@/states/*": ["states/*"],
+      "@/utils/*": ["utils/*"],
       "@/hooks/*": ["hooks/*"],
+      "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"]
     },
     "plugins": [
