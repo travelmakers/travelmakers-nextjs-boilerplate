@@ -38,5 +38,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
+  "types": ["cypress", "cypress-axe", "node"],
   "exclude": ["node_modules"]
 }
