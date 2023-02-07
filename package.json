@@ -23,6 +23,7 @@
     "cypress": "^12.5.1",
     "cypress-react-selector": "^3.0.0",
     "next": "^13.1.5",
+    "next-auth": "^4.19.2",
     "plaiceholder": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
