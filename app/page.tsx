@@ -1,4 +1,4 @@
-import Image from '@/components/Image';
+import Image from '@/components/base/Image';
 import React from 'react';
 
 import { Container } from './styles';
@@ -10,6 +10,7 @@ interface DataProps {
   image: string;
   id: number;
 }
+
 async function getData() {
   const res = await fetch('https://api.sampleapis.com/coffee/hot');
   return res.json();
@@ -28,7 +29,6 @@ const Page = async () => {
 
   return (
     <Container>
-      sgd: {process.env.NEXT_PUBLIC_BASE_URL}
       <Image
         src="/resource/main/banners/20230120/web/zzZKimZpn6EYWQ4irQJhmEG5ZI2R6UGjNPdeK7FP.jpg"
         width={500}

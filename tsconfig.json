@@ -16,6 +16,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
+      "@/api/*": ["api/*"],
       "@/ui/*": ["ui/*"],
       "@/lib/*": ["lib/*"],
       "@/types/*": ["types/*"],

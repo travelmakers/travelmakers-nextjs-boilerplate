@@ -1,12 +1,13 @@
 'use client';
 
+import { GA_ID } from 'config';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export function pageview(url: string) {
-  window.gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
+  window.gtag('config', GA_ID, {
     page_path: url,
   });
 }
@@ -27,7 +28,7 @@ export function event({ action, category, label, value }: GTagEvent) {
   });
 }
 
-const gaScript = `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","${process.env.NEXT_PUBLIC_GA_ID}");`;
+const gaScript = `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","${GA_ID}");`;
 
 const GoogleAnalytics = () => {
   const pathname = usePathname();
@@ -54,10 +55,10 @@ const GoogleAnalytics = () => {
 
   return (
     // https://nextjs.org/docs/messages/next-script-for-ga
-    process.env.NEXT_PUBLIC_GA_ID ? (
+    GA_ID ? (
       <>
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">

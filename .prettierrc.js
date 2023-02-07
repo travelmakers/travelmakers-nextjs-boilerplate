@@ -13,6 +13,7 @@ module.exports = {
   htmlWhitespaceSensitivity: 'css', // HTML 공백 감도 설정
   embeddedLanguageFormatting: 'off',
   importOrder: [
+    '^@api/(.*)$',
     '^@ui/(.*)$',
     '^@lib/(.*)$',
     '^@types/(.*)$',

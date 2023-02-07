@@ -1,4 +1,5 @@
 import { getImageUrl } from '@/utils/getImageUrl';
+import { BLUR_DATA_URL } from 'config';
 import BaseImage from 'next/image';
 import type { ImageProps } from 'next/image';
 import { getPlaiceholder } from 'plaiceholder';
@@ -9,7 +10,12 @@ interface ServerProps {
   src: ImageProps['src'];
 }
 
-async function getStaticProps(props: ImageProps): Promise<{
+/**
+ * ANCHOR - 이미지 url을 입력받아서 blur 처리된 이미지(base64)와 기본 이미지를 리턴한다.
+ * @param props ImageProps
+ * @returns blurDataURL, src
+ */
+async function getData(props: ImageProps): Promise<{
   props: ServerProps;
 }> {
   const imgUrl = getImageUrl(props.src);
@@ -18,13 +24,13 @@ async function getStaticProps(props: ImageProps): Promise<{
   return {
     props: {
       ...img,
-      blurDataURL: base64 ?? process.env.NEXT_PUBLIC_BLUR_DATA_URL,
+      blurDataURL: base64 ?? BLUR_DATA_URL,
     },
   };
 }
 
-const Image = async (imageProps: ImageProps) => {
-  const { props: fetchImage } = await getStaticProps(imageProps);
+const DefaultImage = async (imageProps: ImageProps) => {
+  const { props: fetchImage } = await getData(imageProps);
 
   return (
     <div style={{ position: 'relative', display: 'block', overflow: 'hidden' }}>
@@ -33,9 +39,9 @@ const Image = async (imageProps: ImageProps) => {
   );
 };
 
-const DefaultImage = (imageProps: ImageProps) => (
+const Image = (imageProps: ImageProps) => (
   // @ts-ignore
-  <Image {...imageProps} />
+  <DefaultImage {...imageProps} />
 );
 
-export default DefaultImage;
+export default Image;
