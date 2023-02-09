@@ -22,7 +22,7 @@ const Page = async () => {
   const Coffee = () => (
     <ul>
       {data.map(item => (
-        <li key={item.id}>{item.title}</li>
+        <li key={item.id.toString()}>{item.title}</li>
       ))}
     </ul>
   );

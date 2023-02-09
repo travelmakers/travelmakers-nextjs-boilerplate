@@ -1,3 +1,3 @@
-import { fetchMovies } from './fetchMovies';
+import { fetchMovies, mutateMovies } from './movies';
 
-export { fetchMovies };
+export { fetchMovies, mutateMovies };

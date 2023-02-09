@@ -5,17 +5,13 @@ import { ReactNode, useCallback } from 'react';
 import { RecoilRoot, SetRecoilState } from 'recoil';
 
 type Props = {
-  locale: string;
   children: ReactNode;
 };
 
-const Recoil = ({ locale, children }: Props) => {
-  const initializeState = useCallback(
-    ({ set }: { set: SetRecoilState }) => {
-      set(i18n.locale, locale);
-    },
-    [locale]
-  );
+const Recoil = ({ children }: Props) => {
+  const initializeState = useCallback(({ set }: { set: SetRecoilState }) => {
+    set(i18n.locale, 'ko-KR');
+  }, []);
 
   return <RecoilRoot initializeState={initializeState}>{children}</RecoilRoot>;
 };

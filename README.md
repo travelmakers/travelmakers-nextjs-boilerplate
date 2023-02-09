@@ -17,6 +17,13 @@ yarn
 yarn dev
 ```
 
+## FIXME
+
+- recoil 사용
+  - [TypeError: batcher is not a function](https://github.com/facebookexperimental/Recoil/issues/2082)
+- translate
+  - [next-translate 자체 문제로 판단 중](https://github.com/aralroca/next-translate/issues/961)
+
 ## Commit Message를 작성하는 법
 
 유형들이 복합적으로 포함되어 있을 경우, 되도록 커밋을 분리한다. 분리가 어려운 경우 위 순서상 상위 항목의 유형으로 작성한다. (eg. 기능과 테스트가 모두 포함된 경우 기능으로 작성)
@@ -76,7 +83,8 @@ yarn dev
 
 ## Reference
 
-<https://beta.nextjs.org/docs>
+- <https://beta.nextjs.org/docs>
+- <https://next-auth.js.org/configuration/nextjs#unstable_getserversession>
 
 ## License
 

@@ -4565,6 +4565,11 @@ next-auth@^4.19.2:
     preact-render-to-string "^5.1.19"
     uuid "^8.3.2"
 
+next-translate@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-1.6.0.tgz#28329d9970030c573c529a1a6d5c6b4e75146164"
+  integrity sha512-rmRBYOwPHvokN+5uH3O/SZqfRUVORLkgt/097mSaq3+CWcEtXEjkVrfBZpYwZ8W3og4QVd+uphYX//qegnIbRg==
+
 next-unused@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/next-unused/-/next-unused-0.0.6.tgz#dbefa300bf5586e33d5bfde909130fb19ab04a64"

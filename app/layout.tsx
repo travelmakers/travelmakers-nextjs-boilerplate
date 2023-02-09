@@ -17,8 +17,7 @@ interface Props {
 }
 
 const RootLayout = async ({ children }: Props) => {
-  // const cookie = headers().get('cookie');
-  // const session = await getSession(cookie ?? '');
+  // TODO: getServerSession 사용? unstable_getServerSession 사용?
   const session = await unstable_getServerSession();
   return (
     <html
@@ -30,7 +29,7 @@ const RootLayout = async ({ children }: Props) => {
         <body
           className={`${pretendardFont.className} ${notoSerifFont.className}`}
         >
-          <Recoil locale="ko-KR">
+          <Recoil>
             <ReactQuery>
               <StyledComponent>
                 <StyledComponentsRegistry>

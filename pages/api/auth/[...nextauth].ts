@@ -1,4 +1,5 @@
-import NextAuth from 'next-auth';
+/* eslint-disable no-param-reassign */
+import NextAuth, { User } from 'next-auth';
 import AppleProvider from 'next-auth/providers/apple';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import FacebookProvider from 'next-auth/providers/facebook';
@@ -56,38 +57,61 @@ export default NextAuth({
         const user = await res.json();
 
         // If no error and we have user data, return it
+        const userTest = {
+          id: 1,
+          name: 'test user',
+          email: 'testuser@email.com',
+        };
         if (res.ok && user) {
           return user;
         }
+        return userTest;
         // Return null if user data could not be retrieved
-        return null;
+        // return null;
       },
     }),
   ],
-  // callbacks: {
-  //   async jwt({ token, account, user }) {
-  //     if (account && user) {
-  //       return {
-  //         ...token,
-  //         accessToken: account.access_token,
-  //         refreshToken: account.refresh_token,
-  //         userName: account.providerAccountId,
-  //         accessTokenExpires: Number(account.expires_at) * 1000,
-  //       };
-  //     }
 
-  //     if (Date.now() < token.accessTokenExpires) {
-  //       return token;
-  //     }
+  callbacks: {
+    /**
+     * ANCHOR: JWT Callback
+     * 웹 토큰이 실행 혹은 업데이트될때마다 콜백이 실행
+     * 반환된 값은 암호화되어 쿠키에 저장됨
+     */
+    async jwt({ token, account, user }) {
+      if (account && user) {
+        return {
+          ...token,
+          accessToken: account.access_token,
+          accessTokenExpires: account.expires_at,
+          refreshToken: account.refresh_token,
+          user,
+        };
+      }
 
-  //     return await refreshAccessToken(token);
-  //   },
-  //   async session({ session, token }) {
-  //     session.user.accessToken = token.accessToken;
-  //     session.user.refreshToken = token.refreshToken;
-  //     return session;
-  //   },
-  // },
+      return token;
+
+      // if (Date.now() < token.accessTokenExpires) {
+      //   return token;
+      // }
+
+      // return await refreshAccessToken(token);
+    },
+
+    /**
+     * ANCHOR: Session Callback
+     * ClientSide에서 NextAuth에 세션을 체크할때마다 실행
+     * 반환된 값은 useSession을 통해 ClientSide에서 사용할 수 있음
+     * JWT 토큰의 정보를 Session에 유지 시킨다.
+     */
+    async session({ session, token }) {
+      session.user = token.user as User;
+      // session.accessToken = token.accessToken;
+      // session.accessTokenExpires = token.accessTokenExpires;
+      // session.error = token.error;
+      return session;
+    },
+  },
 });
 
 /**

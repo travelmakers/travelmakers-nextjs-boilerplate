@@ -18,5 +18,8 @@ export const useFetchInfiniteMovies = (search: string) =>
     }
   );
 
-export const useFetchMovies = (search: string) =>
-  useQuery(['movies', search], () => fetchMovies(search));
+export const useFetchMovies = (search?: string) =>
+  useQuery(['movies', search], async () => {
+    const result = await fetchMovies(search);
+    return result;
+  });
