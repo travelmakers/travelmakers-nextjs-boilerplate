@@ -1,4 +1,4 @@
-import Image from '@/components/base/Image';
+import Image from '@/ui/Image';
 import React from 'react';
 
 import { Container } from './styles';
@@ -12,6 +12,7 @@ interface DataProps {
 }
 
 async function getData() {
+  // const res = await fetch('/api/todos');
   const res = await fetch('https://api.sampleapis.com/coffee/hot');
   return res.json();
 }

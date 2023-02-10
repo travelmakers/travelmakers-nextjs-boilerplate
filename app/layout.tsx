@@ -4,9 +4,8 @@ import StyledComponentsRegistry from '@/lib/registry';
 import ChannelTalk from 'components/ChannelTalk';
 import ReactHotToast from 'components/ReactHotToast';
 import ReactQuery from 'components/ReactQuery';
-import Recoil from 'components/Recoil';
 import StyledComponent from 'components/StyledComponent';
-import { unstable_getServerSession } from 'next-auth/next';
+import { getServerSession } from 'next-auth/next';
 import React from 'react';
 
 import GlobalNav from './GlobalNav';
@@ -18,7 +17,7 @@ interface Props {
 
 const RootLayout = async ({ children }: Props) => {
   // TODO: getServerSession 사용? unstable_getServerSession 사용?
-  const session = await unstable_getServerSession();
+  const session = await getServerSession();
   return (
     <html
       lang="ko-KR"
@@ -29,16 +28,16 @@ const RootLayout = async ({ children }: Props) => {
         <body
           className={`${pretendardFont.className} ${notoSerifFont.className}`}
         >
-          <Recoil>
-            <ReactQuery>
-              <StyledComponent>
-                <StyledComponentsRegistry>
-                  <GlobalNav />
-                  {children}
-                </StyledComponentsRegistry>
-              </StyledComponent>
-            </ReactQuery>
-          </Recoil>
+          {/* <Recoil> */}
+          <ReactQuery>
+            <StyledComponent>
+              <StyledComponentsRegistry>
+                <GlobalNav />
+                {children}
+              </StyledComponentsRegistry>
+            </StyledComponent>
+          </ReactQuery>
+          {/* </Recoil> */}
           <ReactHotToast />
           <ChannelTalk />
         </body>

@@ -17,6 +17,36 @@ yarn
 yarn dev
 ```
 
+## Directory
+
+```markdown
+📦api
+┣ 📂fetch
+┃ ┗ 📜index.ts  <!-- fetch & mutate function -->
+┣ 📂hooks
+┃ ┗ 📜index.ts  <!-- useFetchInfinite & useFetch -->
+┣ 📂mutates
+┃ ┗ 📜index.ts  <!-- useMutation -->
+┣ 📂urls
+┃ ┗ 📜index.ts  <!-- urls list -->
+┣ 📜fetchFunctions.ts
+┣ 📜fetchHooks.ts
+┣ 📜mutateHooks.ts
+┗ 📜types.ts
+📦app           <!-- page list -->
+📦components    <!-- component list -->
+📦cypress       <!-- cypress data -->
+📦lib           <!-- library -->
+📦locales       <!-- i18n translate -->
+📦pages         <!-- frontend server api -->
+📦public        <!-- public -->
+📦states        <!-- recoil -->
+📦styles        <!-- style css -->
+📦types         <!-- type definition -->
+📦ui            <!-- User Interface Component -->
+📦utils         <!-- utils function -->
+```
+
 ## FIXME
 
 - recoil 사용

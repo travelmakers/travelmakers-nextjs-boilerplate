@@ -9,6 +9,10 @@ import NaverProvider from 'next-auth/providers/naver';
 
 export default NextAuth({
   secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+  session: { strategy: 'jwt' },
+  pages: {
+    signIn: '/auth/login',
+  },
   providers: [
     AppleProvider({
       clientId: process.env.NEXT_PUBLIC_APPLE_ID as string,
