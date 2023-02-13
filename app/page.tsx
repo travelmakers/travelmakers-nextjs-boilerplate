@@ -12,7 +12,6 @@ interface DataProps {
 }
 
 async function getData() {
-  // const res = await fetch('/api/todos');
   const res = await fetch('https://api.sampleapis.com/coffee/hot');
   return res.json();
 }

@@ -1,6 +1,6 @@
-import { fetchMovies, mutateMovies } from './fetch';
-
-const basicFetch = async (endpoint: string) => {
+export const basicFetch = async <returnType,>(
+  endpoint: string
+): Promise<returnType> => {
   const response = await fetch(endpoint);
 
   if (!response.ok) throw new Error('Error!');
@@ -10,7 +10,7 @@ const basicFetch = async (endpoint: string) => {
   return data;
 };
 
-const mutateFetch = async (
+export const mutateFetch = async (
   endpoint: string,
   method?: string,
   bodyData?: Object
@@ -28,5 +28,3 @@ const mutateFetch = async (
 
   return data;
 };
-
-export { basicFetch, mutateFetch, fetchMovies, mutateMovies };

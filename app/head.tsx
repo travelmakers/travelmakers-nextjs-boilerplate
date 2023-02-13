@@ -1,4 +1,4 @@
-import GoogleAnalytics from 'components/GoogleAnalytics';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const Head = () => (
   <>

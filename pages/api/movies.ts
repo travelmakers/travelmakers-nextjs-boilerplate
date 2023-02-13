@@ -11,7 +11,7 @@ export default async function handler(
 
   const endpoint: string = `${API_URL}/coffee/hot`;
 
-  const data = await basicFetch(endpoint);
+  const data = await basicFetch<Movies>(endpoint);
 
   res.status(200).json(data);
 }

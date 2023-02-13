@@ -1,14 +1,13 @@
 'use client';
 
-import { useFetchMovies } from '@/api/fetchHooks';
-// import { useMutationMovies } from '@/api/mutateHooks';
+import { useFetchMovies, useMutationMovies } from '@/api/hooks/movies';
 import React from 'react';
 
 const Home = () => {
   const { data } = useFetchMovies();
-  // const { mutate } = useMutationMovies();
+  const { mutate } = useMutationMovies();
   const onClick = () => {
-    // mutate({ test: '1' });
+    mutate({ test: '1' });
   };
 
   return (
@@ -17,7 +16,11 @@ const Home = () => {
       <button type="button" onClick={onClick}>
         mutate
       </button>
-      {JSON.stringify(data)}
+      <ul>
+        {data?.map(item => (
+          <li key={item.id.toString()}>{item.title}</li>
+        ))}
+      </ul>
     </div>
   );
 };

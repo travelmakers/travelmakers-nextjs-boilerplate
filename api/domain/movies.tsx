@@ -3,7 +3,7 @@ import { Movies } from '../types';
 import { MOVIES_URL } from '../urls/movies';
 
 export const fetchMovies = async (search = '', page = 1): Promise<Movies> => {
-  const result = await basicFetch(
+  const result = await basicFetch<Movies>(
     `${MOVIES_URL}?search=${search}&page=${page}`
   );
   return result;

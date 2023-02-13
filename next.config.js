@@ -5,6 +5,8 @@ module.exports = nextTranslate({
   swcMinify: true,
   experimental: {
     appDir: true,
+    // NOTE: use this if Node < v18
+    enableUndici: true,
   },
   async headers() {
     return [

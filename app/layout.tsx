@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
+import ChannelTalk from '@/components/ChannelTalk';
+import ReactHotToast from '@/components/ReactHotToast';
+import ReactQuery from '@/components/ReactQuery';
 import AuthContext from '@/components/SessionContext';
+import StyledComponent from '@/components/StyledComponent';
 import StyledComponentsRegistry from '@/lib/registry';
-import ChannelTalk from 'components/ChannelTalk';
-import ReactHotToast from 'components/ReactHotToast';
-import ReactQuery from 'components/ReactQuery';
-import StyledComponent from 'components/StyledComponent';
 import { getServerSession } from 'next-auth/next';
 import React from 'react';
 
@@ -29,14 +29,14 @@ const RootLayout = async ({ children }: Props) => {
           className={`${pretendardFont.className} ${notoSerifFont.className}`}
         >
           {/* <Recoil> */}
-          <ReactQuery>
-            <StyledComponent>
-              <StyledComponentsRegistry>
+          <StyledComponent>
+            <StyledComponentsRegistry>
+              <ReactQuery>
                 <GlobalNav />
                 {children}
-              </StyledComponentsRegistry>
-            </StyledComponent>
-          </ReactQuery>
+              </ReactQuery>
+            </StyledComponentsRegistry>
+          </StyledComponent>
           {/* </Recoil> */}
           <ReactHotToast />
           <ChannelTalk />

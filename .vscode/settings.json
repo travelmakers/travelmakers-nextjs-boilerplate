@@ -1,5 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["Kakao", "Naver", "Plaiceholder"]
+  "cSpell.words": ["Kakao", "Naver", "NEXTAUTH", "Plaiceholder"]
 }
