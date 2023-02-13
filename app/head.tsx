@@ -5,7 +5,11 @@ const Head = () => (
     <title>travelmakers-nextjs-boilerplate</title>
     <GoogleAnalytics />
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
-    <meta name="theme-color" content="#317EFB" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no"
+    />
     <meta
       name="description"
       content="A playground to explore new Next.js 13 app directory features such as nested layouts, instant loading states, streaming, and component level data fetching."

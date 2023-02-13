@@ -47,9 +47,12 @@
     ]
   },
   "next-unused": {
-    "alias": {},
+    "alias": {
+      "@/components": "components/"
+    },
     "include": [
-      "app"
+      "app",
+      "components"
     ],
     "exclude": [],
     "entrypoints": [

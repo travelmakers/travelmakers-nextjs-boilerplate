@@ -2,6 +2,7 @@
 import ChannelTalk from '@/components/ChannelTalk';
 import ReactHotToast from '@/components/ReactHotToast';
 import ReactQuery from '@/components/ReactQuery';
+import Recoil from '@/components/Recoil';
 import AuthContext from '@/components/SessionContext';
 import StyledComponent from '@/components/StyledComponent';
 import StyledComponentsRegistry from '@/lib/registry';
@@ -28,16 +29,16 @@ const RootLayout = async ({ children }: Props) => {
         <body
           className={`${pretendardFont.className} ${notoSerifFont.className}`}
         >
-          {/* <Recoil> */}
-          <StyledComponent>
-            <StyledComponentsRegistry>
-              <ReactQuery>
-                <GlobalNav />
-                {children}
-              </ReactQuery>
-            </StyledComponentsRegistry>
-          </StyledComponent>
-          {/* </Recoil> */}
+          <Recoil>
+            <StyledComponent>
+              <StyledComponentsRegistry>
+                <ReactQuery>
+                  <GlobalNav />
+                  {children}
+                </ReactQuery>
+              </StyledComponentsRegistry>
+            </StyledComponent>
+          </Recoil>
           <ReactHotToast />
           <ChannelTalk />
         </body>

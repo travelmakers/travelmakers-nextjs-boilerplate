@@ -53,6 +53,28 @@ yarn dev
   - [TypeError: batcher is not a function](https://github.com/facebookexperimental/Recoil/issues/2082)
 - translate
   - [next-translate 자체 문제로 판단 중](https://github.com/aralroca/next-translate/issues/961)
+  - `I18nContext.tsx`
+
+    ```typescript
+    'use client';
+
+    import commonKO from 'locales/ko/common.json';
+    import I18nProvider from 'next-translate/I18nProvider';
+    import React from 'react';
+
+    interface Props {
+      children: React.ReactNode;
+    }
+
+    const I18nContext: React.FC<Props> = ({ children }) => (
+      <I18nProvider lang="ko" namespaces={{ common: commonKO }}>
+        {children}
+      </I18nProvider>
+    );
+
+    export default I18nContext;
+
+    ```
 
 ## Commit Message를 작성하는 법
 
