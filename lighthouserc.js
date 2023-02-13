@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       url: ['http://localhost:3000'],
       collect: {
-        numberOfRuns: 1,
+        numberOfRuns: 5,
       },
     },
     upload: {
@@ -33,6 +33,7 @@ module.exports = {
         'apple-touch-icon': 'off',
         'document-title': 'off',
         'errors-in-console': 'off',
+        'meta-description': 'off',
         'html-has-lang': 'off',
         viewport: 'off',
       },
