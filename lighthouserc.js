@@ -35,6 +35,7 @@ module.exports = {
         'errors-in-console': 'off',
         'meta-description': 'off',
         'html-has-lang': 'off',
+        'robots-txt': 'off',
         viewport: 'off',
       },
       preset: 'lighthouse:recommended',
