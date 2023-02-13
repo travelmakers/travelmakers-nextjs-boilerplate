@@ -22,8 +22,14 @@ export const useFetchInfiniteMovies = (search: string) =>
     ({ pageParam = 1 }) => fetchMovies(search, pageParam),
     {
       getNextPageParam: (lastPage: Movies) => {
-        if (lastPage.page < lastPage.total_pages) {
-          return lastPage.page + 1;
+        // NOTE: 실제 infinite 호출시 사용해야할 로직
+        // if (lastPage.page < lastPage.total_pages) {
+        //   return lastPage.page + 1;
+        // }
+
+        // NOTE: delete code
+        if (lastPage) {
+          return 1;
         }
 
         return undefined;

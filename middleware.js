@@ -1,4 +1,3 @@
-import { includes } from 'lodash';
 import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
 
@@ -11,7 +10,7 @@ export default withAuth(
   function middleware(req) {
     const role = req.headers.get('authorization');
     const { pathname } = req.nextUrl;
-    if (isUserRoute(pathname) && !includes(['user', 'admin'], role))
+    if (isUserRoute(pathname) && !['user', 'admin'].includes(role))
       NextResponse.redirect(new URL(LOGIN_PAGE, req.url));
 
     if (isAdminRoute(pathname) && role !== 'admin')
