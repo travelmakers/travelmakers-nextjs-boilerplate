@@ -10,12 +10,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.1
-
       - name: npm install
         run: |
           npm install
       - name: run build
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_URL: https://api.sampleapis.com
+          NEXT_PUBLIC_S3_URL: 'https://d2pyzcqibfhr70.cloudfront.net'
+          NEXT_PUBLIC_BLUR_DATA_URL: 'data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII='
+          NEXTAUTH_URL: http://localhost:3000
+          NEXT_PUBLIC_KAKAO_API_KEY: ${{ secrets.NEXT_PUBLIC_KAKAO_API_KEY }}
+          NEXT_PUBLIC_KAKAO_SECRET: ${{ secrets.NEXT_PUBLIC_KAKAO_SECRET }}
       - name: run Lighthouse CI
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
