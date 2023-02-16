@@ -29,6 +29,7 @@ const Page = async () => {
 
   return (
     <Container>
+      <span>sgd</span>
       <Image
         src="/resource/main/banners/20230120/web/zzZKimZpn6EYWQ4irQJhmEG5ZI2R6UGjNPdeK7FP.jpg"
         width={500}

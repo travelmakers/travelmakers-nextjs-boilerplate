@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    font-family: 'Pretendard',-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family: var(--font-pretendard),-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,var(--font-noto-serif);
   }
   a {
     color: inherit;
@@ -20,10 +20,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     border: none;
     outline: none;
-    font-family:'Pretendard', sans-serif;
+    font-family:var(--font-pretendard), var(--font-noto-serif);
   }
   p, h1, h2, h3, h4, h5, h6{
-    font-family:'Pretendard', sans-serif;
+    font-family:var(--font-pretendard), var(--font-noto-serif);
+  }
+  span{
+    font-family:var(--font-pretendard), var(--font-noto-serif);
+    font-weight: 400;
+    font-style: normal;
   }
   ol, ul, li {
     list-style: inside;

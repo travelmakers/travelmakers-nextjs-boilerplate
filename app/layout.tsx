@@ -6,11 +6,11 @@ import Recoil from '@/components/Recoil';
 import AuthContext from '@/components/SessionContext';
 import StyledComponent from '@/components/StyledComponent';
 import StyledComponentsRegistry from '@/lib/registry';
+import { notoSerifFont, pretendardFont, robotoFont } from '@/styles/fonts';
 import { getServerSession } from 'next-auth/next';
 import React from 'react';
 
 import GlobalNav from './GlobalNav';
-import { notoSerifFont, pretendardFont } from './fonts';
 
 interface Props {
   children: React.ReactNode;
@@ -22,13 +22,11 @@ const RootLayout = async ({ children }: Props) => {
   return (
     <html
       lang="ko-KR"
-      className={`${pretendardFont.className} ${notoSerifFont.className}`}
+      className={`${pretendardFont.variable} ${notoSerifFont.variable} ${robotoFont.variable}`}
     >
       <AuthContext session={session}>
         <head />
-        <body
-          className={`${pretendardFont.className} ${notoSerifFont.className}`}
-        >
+        <body>
           <Recoil>
             <StyledComponent>
               <StyledComponentsRegistry>
