@@ -1,9 +1,10 @@
 'use client';
 
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { getUserClientSession } from '@/utils/getUserClientSession';
+import { signIn, signOut } from 'next-auth/react';
 
 const Login = () => {
-  const { data: session, status } = useSession();
+  const { session, status } = getUserClientSession();
 
   const isUser = !!session?.user;
   if (!isUser) {
