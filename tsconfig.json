@@ -24,7 +24,19 @@
       "@/utils/*": ["utils/*"],
       "@/hooks/*": ["hooks/*"],
       "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@travelmakers-design/core": [
+        "../travelmakers-design/packages/travelmakers-design-core"
+      ],
+      "@travelmakers-design/styles": [
+        "../travelmakers-design/packages/travelmakers-design-styles"
+      ],
+      "@travelmakers-design/hooks": [
+        "../travelmakers-design/packages/travelmakers-design-hooks"
+      ],
+      "@travelmakers-design/utils": [
+        "../travelmakers-design/packages/travelmakers-design-utils"
+      ]
     },
     "plugins": [
       {
