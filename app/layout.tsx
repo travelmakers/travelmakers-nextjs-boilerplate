@@ -22,8 +22,6 @@ const RootLayout = async ({ children }: Props) => {
       lang="ko-KR"
       className={`${pretendardFont.variable} ${notoSerifFont.variable} ${robotoFont.variable}`}
     >
-      {JSON.stringify(session)}
-      {JSON.stringify(session === null)}
       <AuthContext session={session}>
         <head />
         <body>

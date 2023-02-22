@@ -6,12 +6,25 @@ import { signIn, signOut } from 'next-auth/react';
 const Login = () => {
   const { session, status } = getUserClientSession();
 
-  const isUser = !!session?.user;
+  const isUser = status === 'authenticated';
   if (!isUser) {
     return (
-      <button type="button" onClick={() => signIn('kakao')}>
-        Login
-      </button>
+      <>
+        <button type="button" onClick={() => signIn('kakao')}>
+          Kakao Login
+        </button>
+        <button
+          type="button"
+          onClick={() =>
+            signIn('email-password-credentials', {
+              email: 'nerolizm@gmail.com',
+              password: 'lTp2U11Jg1Ma!',
+            })
+          }
+        >
+          Credential Login
+        </button>
+      </>
     );
   }
   return (
