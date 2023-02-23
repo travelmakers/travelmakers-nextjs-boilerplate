@@ -1,14 +1,23 @@
+import { IUser } from '@/types/api.user';
 import type { ISODateString } from 'next-auth';
-import { getServerSession } from 'next-auth/next';
+import { headers } from 'next/headers';
 
 export type Session = {
-  user?: {
-    name?: string | null;
-    email?: string | null;
-    image?: string | null;
-  };
+  user?: IUser;
   expires: ISODateString;
 };
+
+async function getSession(cookie: string): Promise<Session> {
+  const response = await fetch('http://localhost:3000/api/auth/session', {
+    headers: {
+      cookie,
+    },
+  });
+
+  const session = await response.json();
+
+  return Object.keys(session).length > 0 ? session : null;
+}
 
 /**
  * Returned by `useSession`, `getSession`, returned by the `session` callback
@@ -21,6 +30,6 @@ export type Session = {
  */
 export async function getUserServerSession(): Promise<Session | null> {
   // TODO: getServerSession 사용? unstable_getServerSession 사용?
-  const session = await getServerSession();
+  const session = await getSession(headers().get('cookie') ?? '');
   return session;
 }

@@ -6,7 +6,7 @@ import { signIn, signOut } from 'next-auth/react';
 const Login = () => {
   const { session, status } = getUserClientSession();
 
-  const isUser = status === 'authenticated';
+  const isUser = !!session?.user;
   if (!isUser) {
     return (
       <>

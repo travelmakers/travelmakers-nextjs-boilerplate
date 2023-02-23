@@ -152,6 +152,7 @@ export default NextAuth({
      */
     // @ts-ignore
     async jwt({ token, account, user }) {
+      console.log('sgdsgd', account && user);
       if (account && user) {
         return {
           ...token,
@@ -182,7 +183,7 @@ export default NextAuth({
       // session.accessToken = token.accessToken;
       // session.accessTokenExpires = token.accessTokenExpires;
       // session.error = token.error;
-      return { ...session, ...token };
+      return session;
     },
   },
 });
