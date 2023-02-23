@@ -9,6 +9,7 @@ export function getUserClientSession(): {
 } {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data, status } = useSession();
+  // @ts-ignore
   const session: UserSession = data;
 
   return {
