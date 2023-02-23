@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { BASE_URL } from '@/api/urls/versions';
 import type { IUser, UserStatus } from '@/types/api.user';
-import NextAuth, { User } from 'next-auth';
+import NextAuth from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import AppleProvider from 'next-auth/providers/apple';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -177,7 +177,7 @@ export default NextAuth({
      * JWT 토큰의 정보를 Session에 유지 시킨다.
      */
     async session({ session, token }) {
-      session.user = token.user as User;
+      session.user = token.user as IUser;
       // session.accessToken = token.accessToken;
       // session.accessTokenExpires = token.accessTokenExpires;
       // session.error = token.error;
