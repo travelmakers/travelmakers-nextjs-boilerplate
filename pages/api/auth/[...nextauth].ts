@@ -120,7 +120,6 @@ async function getSocialProviderProfile(token: JWT, provider: string) {
       data: { user: userData },
     }: UserStatus = await userResponse.json();
 
-    // console.log('sgd-userResponse', { ...token, ...userData });
     if (userResponse.ok && userData) {
       return {
         ...token,
@@ -152,7 +151,6 @@ export default NextAuth({
      */
     // @ts-ignore
     async jwt({ token, account, user }) {
-      console.log('sgdsgd', account && user);
       if (account && user) {
         return {
           ...token,

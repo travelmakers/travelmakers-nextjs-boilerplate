@@ -17,8 +17,8 @@ const Login = () => {
           type="button"
           onClick={() =>
             signIn('email-password-credentials', {
-              email: 'nerolizm@gmail.com',
-              password: 'lTp2U11Jg1Ma!',
+              email: process.env.NEXT_PUBLIC_EMAIL,
+              password: process.env.NEXT_PUBLIC_PASSWORD,
             })
           }
         >
