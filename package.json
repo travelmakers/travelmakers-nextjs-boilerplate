@@ -19,6 +19,7 @@
   "dependencies": {
     "@cypress/code-coverage": "^3.10.0",
     "@next/font": "^13.1.6",
+    "@sentry/nextjs": "^7.38.0",
     "clsx": "^1.2.1",
     "cypress": "^12.5.1",
     "cypress-react-selector": "^3.0.0",
