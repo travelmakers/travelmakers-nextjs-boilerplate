@@ -1,3 +1,4 @@
+import { basicFetch } from '@/api/fetchFunctions';
 import Image from '@/ui/Image';
 import React from 'react';
 
@@ -12,12 +13,14 @@ interface DataProps {
 }
 
 async function getData() {
-  const res = await fetch('https://api.sampleapis.com/coffee/hot');
-  return res.json();
+  const data = await basicFetch<DataProps[]>(
+    'https://api.sampleapis.com/coffee/hot'
+  );
+  return data;
 }
 
 const Page = async () => {
-  const data: DataProps[] = await getData();
+  const data = await getData();
 
   const Coffee = () => (
     <ul>

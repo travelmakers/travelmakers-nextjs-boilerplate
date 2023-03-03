@@ -1,3 +1,4 @@
+import { withSentry } from '@sentry/nextjs';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const SIMPLE = [
@@ -7,6 +8,8 @@ const SIMPLE = [
   { id: 3, title: 'John Doe', completed: false },
 ];
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json(SIMPLE);
 }
+
+export default withSentry(handler);

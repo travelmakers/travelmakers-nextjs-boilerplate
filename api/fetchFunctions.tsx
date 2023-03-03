@@ -1,13 +1,19 @@
+import * as Sentry from '@sentry/nextjs';
+
 export const basicFetch = async <returnType,>(
   endpoint: string
 ): Promise<returnType> => {
-  const response = await fetch(endpoint);
-
-  if (!response.ok) throw new Error('Error!');
-
-  const data = await response.json();
-
-  return data;
+  try {
+    const response = await fetch(endpoint);
+    const responseData = await response.json();
+    if (response.status >= 400) {
+      throw new Error(responseData);
+    }
+    return responseData;
+  } catch (error) {
+    Sentry.captureException(error);
+    throw error;
+  }
 };
 
 export const mutateFetch = async (
@@ -15,16 +21,20 @@ export const mutateFetch = async (
   method?: string,
   bodyData?: Object
 ) => {
-  const response = await fetch(endpoint, {
-    method: method ?? 'POST',
-    body: JSON.stringify({
-      ...bodyData,
-    }),
-  });
-
-  if (!response.ok) throw new Error('Error!');
-
-  const data = await response.json();
-
-  return data;
+  try {
+    const response = await fetch(endpoint, {
+      method: method ?? 'POST',
+      body: JSON.stringify({
+        ...bodyData,
+      }),
+    });
+    const responseData = await response.json();
+    if (response.status >= 400) {
+      throw new Error(responseData);
+    }
+    return responseData;
+  } catch (error) {
+    Sentry.captureException(error);
+    throw error;
+  }
 };
