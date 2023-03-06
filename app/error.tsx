@@ -27,17 +27,22 @@ const CustomErrorComponent: NextPage<Props> = ({ error, reset }) => (
   // If you're using a Nextjs version prior to 12.2.1, uncomment this to
   // compensate for https://github.com/vercel/next.js/issues/8592
   // Sentry.captureUnderscoreErrorException(props);
-  <div>
-    error page
-    <div>
-      <p>
-        {error?.name}: {error?.message}
-      </p>
-    </div>
-    <button type="button" onClick={() => reset?.()}>
-      Try again
-    </button>
-  </div>
+  <html lang="ko-KR">
+    <head />
+    <body>
+      <div>
+        inner error page
+        <div>
+          <p>
+            {error?.name}: {error?.message}
+          </p>
+        </div>
+        <button type="button" onClick={() => reset?.()}>
+          Try again
+        </button>
+      </div>
+    </body>
+  </html>
 );
 
 CustomErrorComponent.getInitialProps = async contextData => {
