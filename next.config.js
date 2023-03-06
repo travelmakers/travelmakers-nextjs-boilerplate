@@ -21,6 +21,9 @@ module.exports = withSentryConfig(
       // NOTE: use this if Node < v18
       enableUndici: true,
     },
+    compiler: {
+      styledComponents: true,
+    },
     sentry: {
       hideSourceMaps: true,
     },
