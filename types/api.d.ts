@@ -86,6 +86,18 @@ declare module '@hotel/api' {
       notice: string;
       sections: ISections[];
     };
+    banners: {
+      hotel_id: string;
+      images: string;
+      name: string;
+      description: string;
+      promotion: string;
+      link: string;
+      depth: string;
+      tab: string;
+      route: string;
+      view: string;
+    }[];
     cancelRefundPolicy: {
       document: string;
       fifth: string;

@@ -25,16 +25,16 @@ const RootLayout = async ({ children }: Props) => {
       <AuthContext session={session}>
         <head />
         <body>
-          <Recoil>
+          <StyledComponentsRegistry>
             <StyledComponent>
-              <StyledComponentsRegistry>
+              <Recoil>
                 <ReactQuery>
                   <Head />
                   {children}
                 </ReactQuery>
-              </StyledComponentsRegistry>
+              </Recoil>
             </StyledComponent>
-          </Recoil>
+          </StyledComponentsRegistry>
           <ReactHotToast />
           <ChannelTalk />
         </body>

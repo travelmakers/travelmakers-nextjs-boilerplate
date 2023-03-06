@@ -1,21 +1,11 @@
-import { basicFetch } from '@/api/fetchFunctions';
+import { fetchMain } from '@/api/domain/travelmakers';
 import Image from '@/ui/Image';
 import React from 'react';
 
 import { Container } from './styles';
 
-interface DataProps {
-  title: string;
-  description: string;
-  ingredients: string[];
-  image: string;
-  id: number;
-}
-
 async function getData() {
-  const data = await basicFetch<DataProps[]>(
-    'https://api.sampleapis.com/coffee/hot'
-  );
+  const data = await fetchMain();
   return data;
 }
 
@@ -24,8 +14,8 @@ const Page = async () => {
 
   const Coffee = () => (
     <ul>
-      {data.map(item => (
-        <li key={item.id.toString()}>{item.title}</li>
+      {data.banners?.map(item => (
+        <li key={item.hotel_id?.toString()}>{item.name}</li>
       ))}
     </ul>
   );

@@ -9,11 +9,12 @@ interface Props {
 }
 const Container: React.FC<Props> = ({ data }) => {
   const router = useRouter();
+
   const [isPending, startTransition] = useTransition();
 
   async function handleChange() {
     // NOTE: Mutate external data source
-    // await fetch(`https://api.example.com/todo/${id}`, {
+    // await basicFetch(`https://api.example.com/todo/${id}`, {
     //   method: 'PUT',
     //   body: JSON.stringify({ completed: !completed }),
     // });

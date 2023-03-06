@@ -27,6 +27,9 @@ const Head = () => {
           <li>
             <Link href="/main">main 페이지</Link>
           </li>
+          <li>
+            <Link href="/mypage">mypage 페이지</Link>
+          </li>
         </ul>
       </HeadBox>
     </>

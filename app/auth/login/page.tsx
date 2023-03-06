@@ -5,9 +5,12 @@ import RootContainer from '@/ui/RootContainer';
 import { getUserClientSession } from '@/utils/getUserClientSession';
 import SignUpValidation from '@/utils/validations/SignUpValidation';
 import { signIn, signOut } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 const Login = () => {
   const { session, status } = getUserClientSession();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl');
   const { errors, handleChange, handleSubmit } = useForm<{
     email: string;
     id: string;
@@ -18,6 +21,7 @@ const Login = () => {
       signIn('email-password-credentials', {
         email: fields.email,
         password: fields.password,
+        callbackUrl: `${callbackUrl}`,
       });
     },
     validate: SignUpValidation,
@@ -54,7 +58,14 @@ const Login = () => {
             <p>{errors.password}</p>
             <br />
           </div>
-          <button type="button" onClick={() => signIn('kakao')}>
+          <button
+            type="button"
+            onClick={() =>
+              signIn('kakao', {
+                callbackUrl: `${callbackUrl}`,
+              })
+            }
+          >
             Kakao Login
           </button>
           <button type="submit">Credential Login</button>

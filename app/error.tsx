@@ -1,19 +1,5 @@
 'use client';
 
-// const GlobalError = ({ error, reset }: { error: Error; reset: () => void }) => (
-//   <div>
-//     <div>
-//       <p>
-//         {error.name}: {error.message}
-//       </p>
-//     </div>
-//     <button type="button" onClick={() => reset()}>
-//       Try again
-//     </button>
-//   </div>
-// );
-// export default GlobalError;
-
 /**
  * NOTE: This requires `@sentry/nextjs` version 7.3.0 or higher.
  *
@@ -33,13 +19,24 @@ import type { NextPage } from 'next';
 import type { ErrorProps } from 'next/error';
 import NextErrorComponent from 'next/error';
 
-const CustomErrorComponent: NextPage<ErrorProps> = () => (
+interface Props extends ErrorProps {
+  error?: Error;
+  reset?: () => void;
+}
+const CustomErrorComponent: NextPage<Props> = ({ error, reset }) => (
   // If you're using a Nextjs version prior to 12.2.1, uncomment this to
   // compensate for https://github.com/vercel/next.js/issues/8592
   // Sentry.captureUnderscoreErrorException(props);
   <div>
-    error
-    {/* <NextErrorComponent statusCode={statusCode} /> */}
+    error page
+    <div>
+      <p>
+        {error?.name}: {error?.message}
+      </p>
+    </div>
+    <button type="button" onClick={() => reset?.()}>
+      Try again
+    </button>
   </div>
 );
 
