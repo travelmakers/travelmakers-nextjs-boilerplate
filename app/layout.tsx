@@ -5,7 +5,7 @@ import Recoil from '@/components/Recoil';
 import AuthContext from '@/components/SessionContext';
 import StyledComponent from '@/components/StyledComponent';
 import StyledComponentsRegistry from '@/lib/registry';
-import { notoSerifFont, pretendardFont, robotoFont } from '@/styles/fonts';
+import { notoSerifFont, pretendardFont } from '@/styles/fonts';
 import Head from '@/ui/Head';
 import { getUserServerSession } from '@/utils/getUserServerSession';
 import 'next-auth/next';
@@ -21,7 +21,7 @@ const RootLayout = async ({ children }: Props) => {
   return (
     <html
       lang="ko-KR"
-      className={`${pretendardFont.variable} ${notoSerifFont.variable} ${robotoFont.variable}`}
+      className={`${pretendardFont.variable} ${notoSerifFont.variable}`}
     >
       <AuthContext session={session}>
         <head />

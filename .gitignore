@@ -52,3 +52,20 @@ cypress/screenshots/*
 cypress/videos/*
 
 # End of https://www.toptal.com/developers/gitignore/api/cypressio
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js
+
+# Sentry
+next.config.wizardcopy.js
+
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js
+
+# Sentry
+next.config.wizardcopy.js
