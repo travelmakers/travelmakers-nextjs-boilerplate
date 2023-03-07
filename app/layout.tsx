@@ -10,6 +10,7 @@ import Head from '@/ui/Head';
 import { getUserServerSession } from '@/utils/getUserServerSession';
 import 'next-auth/next';
 import React from 'react';
+import 'swiper/swiper.css';
 
 interface Props {
   children: React.ReactNode;
