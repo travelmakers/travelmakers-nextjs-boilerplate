@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation';
 const Login = () => {
   const { session, status } = getUserClientSession();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl');
+  const callbackUrl = searchParams?.get?.('callbackUrl');
   const { errors, handleChange, handleSubmit } = useForm<{
     email: string;
     id: string;
