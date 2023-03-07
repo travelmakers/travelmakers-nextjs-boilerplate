@@ -76,6 +76,15 @@ yarn dev
 
     ```
 
+## Sentry init
+
+<!-- Sentry build 설정하는 방법 -->
+```bash
+npx @sentry/wizard -i nextjs
+```
+
+위 command 설정 후 **.sentryclirc** 파일에 있는 auth를 **SECRETS.SENTRY_TOKEN** 설정 하여 사용
+
 ## Commit Message를 작성하는 법
 
 유형들이 복합적으로 포함되어 있을 경우, 되도록 커밋을 분리한다. 분리가 어려운 경우 위 순서상 상위 항목의 유형으로 작성한다. (eg. 기능과 테스트가 모두 포함된 경우 기능으로 작성)
