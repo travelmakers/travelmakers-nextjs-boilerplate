@@ -83,6 +83,12 @@ yarn dev
 npx @sentry/wizard -i nextjs
 ```
 
+## Lighthouse
+
+```bash
+npx lhci autorun
+```
+
 위 command 설정 후 **.sentryclirc** 파일에 있는 auth를 **SECRETS.SENTRY_TOKEN** 설정 하여 사용
 
 ## Commit Message를 작성하는 법
