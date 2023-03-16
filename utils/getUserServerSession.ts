@@ -7,16 +7,20 @@ export type Session = {
   expires: ISODateString;
 };
 
-async function getSession(cookie: string): Promise<Session> {
+async function getSession(cookie: string): Promise<Session | null> {
   const response = await fetch('http://localhost:3000/api/auth/session', {
     headers: {
       cookie,
     },
   });
 
-  const session = await response.json();
+  try {
+    const session = await response.json();
 
-  return Object.keys(session).length > 0 ? session : null;
+    return Object.keys(session).length > 0 ? session : null;
+  } catch (error) {
+    return null;
+  }
 }
 
 /**
