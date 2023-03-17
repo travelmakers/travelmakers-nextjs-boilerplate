@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { BASE_URL } from '@/api/urls/versions';
 import type { IUser, UserStatus } from '@/types/api.user';
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import AppleProvider from 'next-auth/providers/apple';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -133,7 +133,7 @@ async function getSocialProviderProfile(token: JWT, provider: string) {
   return token;
 }
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   // NOTE: jwt 사용을 위한 임의의 난수를 할당
   secret: process.env.NEXTAUTH_SECRET,
   // NOTE: 세션 전략을 jwt로 설정
@@ -184,4 +184,6 @@ export default NextAuth({
       return session;
     },
   },
-});
+};
+
+export default NextAuth(authOptions);
