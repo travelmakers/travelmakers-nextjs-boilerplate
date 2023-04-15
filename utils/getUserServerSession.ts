@@ -1,4 +1,4 @@
-import { IUser } from '@/types/api.user';
+import { IUser } from '@hotel/api/user';
 import { ISODateString, getServerSession } from 'next-auth';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 
@@ -8,9 +8,9 @@ export type Session = {
 };
 
 async function getSession() {
-  const session = await getServerSession(authOptions);
-
   try {
+    const session = await getServerSession(authOptions);
+
     return session;
   } catch (error) {
     return null;
@@ -27,7 +27,6 @@ async function getSession() {
  * [`session` callback](https://next-auth.js.org/configuration/callbacks#jwt-callback)
  */
 export async function getUserServerSession() {
-  // TODO: getServerSession 사용? unstable_getServerSession 사용?
   const session = await getSession();
   return session;
 }

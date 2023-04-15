@@ -1,25 +1,19 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import config from '@/lib/react-query/config';
+import { QueryClient } from '@tanstack/query-core';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { PropsWithChildren, useState } from 'react';
 
-type Props = {
-  children: ReactNode;
+const ReactQuery = ({ children }: PropsWithChildren) => {
+  const [queryClient] = useState(() => new QueryClient(config));
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      {children}
+    </QueryClientProvider>
+  );
 };
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      // refetchOnWindowFocus 는 데이터가 stale 상태일 경우 윈도우 포커싱 될 때 마다 refetch를 실행하는 옵션이다.
-      refetchOnWindowFocus: true,
-      staleTime: 5 * 60 * 1000, // 5분
-      suspense: true,
-    },
-  },
-});
-
-const ReactQuery = ({ children }: Props) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
 
 export default ReactQuery;

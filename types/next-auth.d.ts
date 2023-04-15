@@ -1,11 +1,10 @@
 /* eslint-disable import/no-duplicates */
 
 /* eslint-disable no-unused-vars */
+import { IUser } from '@hotel/api/user';
 import 'next-auth';
 import NextAuth from 'next-auth';
 import * as auth from 'next-auth';
-
-import { IUser } from './api.user';
 
 // import * as client from 'next-auth/client'
 // import 'next-auth/client'
