@@ -11,6 +11,8 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.17.1",
+    "@tanstack/react-query-devtools": "^5.17.1",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
@@ -19,15 +21,19 @@
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@lhci/cli": "^0.13.0",
+    "@next/eslint-plugin-next": "^14.0.4",
+    "@tanstack/eslint-plugin-query": "^5.17.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",

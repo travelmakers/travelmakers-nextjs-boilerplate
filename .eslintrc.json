@@ -15,7 +15,6 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@next/next/recommended",
@@ -51,8 +50,6 @@
   "rules": {
     "no-useless-catch": "off",
     "no-use-before-define": "off",
-    "@tanstack/query/exhaustive-deps": "error",
-    "@tanstack/query/prefer-query-object-syntax": "error",
     "react/function-component-definition": [
       2,
       {
@@ -79,7 +76,7 @@
       }
     ],
     // 일관적인 인터페이스 이름 지정 (I 접두사 사용)
-    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }],
+//    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }],
     // 일관된 화살표 함수 괄호: 화살표 함수에 대해 일관적인 괄호 사용을 적용합니다.
     "arrow-parens": ["error", "always"],
     // import 순서 규칙
