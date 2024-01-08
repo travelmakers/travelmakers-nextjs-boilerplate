@@ -49,7 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^18.4.3":
+"@commitlint/cli@npm:^18.4.4":
   version: 18.4.4
   resolution: "@commitlint/cli@npm:18.4.4"
   dependencies:
@@ -69,7 +69,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^18.4.3":
+"@commitlint/config-conventional@npm:^18.4.4":
   version: 18.4.4
   resolution: "@commitlint/config-conventional@npm:18.4.4"
   dependencies:
@@ -1770,6 +1770,18 @@ __metadata:
   version: 11.1.0
   resolution: "commander@npm:11.1.0"
   checksum: 13cc6ac875e48780250f723fb81c1c1178d35c5decb1abb1b628b3177af08a8554e76b2c0f29de72d69eef7c864d12613272a71fabef8047922bc622ab75a179
+  languageName: node
+  linkType: hard
+
+"commitlint@npm:^18.4.4":
+  version: 18.4.4
+  resolution: "commitlint@npm:18.4.4"
+  dependencies:
+    "@commitlint/cli": "npm:^18.4.4"
+    "@commitlint/types": "npm:^18.4.4"
+  bin:
+    commitlint: cli.js
+  checksum: 4202eab55a3b838d922341ebd2d299294458df4477e2befc0a1ec516fb4619a3abac2d128d4d6244ff6502a6cc3043deca5f2c4e78f9d0cd4efea0425058e06d
   languageName: node
   linkType: hard
 
@@ -6681,8 +6693,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "travelmakers-nextjs-boilerplate@workspace:."
   dependencies:
-    "@commitlint/cli": "npm:^18.4.3"
-    "@commitlint/config-conventional": "npm:^18.4.3"
+    "@commitlint/cli": "npm:^18.4.4"
+    "@commitlint/config-conventional": "npm:^18.4.4"
     "@lhci/cli": "npm:^0.13.0"
     "@next/eslint-plugin-next": "npm:^14.0.4"
     "@tanstack/eslint-plugin-query": "npm:^5.17.1"
@@ -6693,6 +6705,7 @@ __metadata:
     "@types/react-dom": "npm:^18"
     "@typescript-eslint/eslint-plugin": "npm:^6.17.0"
     "@typescript-eslint/parser": "npm:^6.17.0"
+    commitlint: "npm:^18.4.4"
     eslint: "npm:^8.56.0"
     eslint-config-next: "npm:14.0.4"
     eslint-config-prettier: "npm:^9.1.0"
