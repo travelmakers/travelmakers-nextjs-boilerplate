@@ -1773,18 +1773,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitlint@npm:^18.4.4":
-  version: 18.4.4
-  resolution: "commitlint@npm:18.4.4"
-  dependencies:
-    "@commitlint/cli": "npm:^18.4.4"
-    "@commitlint/types": "npm:^18.4.4"
-  bin:
-    commitlint: cli.js
-  checksum: 4202eab55a3b838d922341ebd2d299294458df4477e2befc0a1ec516fb4619a3abac2d128d4d6244ff6502a6cc3043deca5f2c4e78f9d0cd4efea0425058e06d
-  languageName: node
-  linkType: hard
-
 "compare-func@npm:^2.0.0":
   version: 2.0.0
   resolution: "compare-func@npm:2.0.0"
@@ -6705,7 +6693,6 @@ __metadata:
     "@types/react-dom": "npm:^18"
     "@typescript-eslint/eslint-plugin": "npm:^6.17.0"
     "@typescript-eslint/parser": "npm:^6.17.0"
-    commitlint: "npm:^18.4.4"
     eslint: "npm:^8.56.0"
     eslint-config-next: "npm:14.0.4"
     eslint-config-prettier: "npm:^9.1.0"

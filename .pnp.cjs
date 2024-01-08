@@ -38,7 +38,6 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.2.18"],\
           ["@typescript-eslint/eslint-plugin", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:6.17.0"],\
           ["@typescript-eslint/parser", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:6.17.0"],\
-          ["commitlint", "npm:18.4.4"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:14.0.4"],\
           ["eslint-config-prettier", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:9.1.0"],\
@@ -2196,17 +2195,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/commander-npm-11.1.0-56e979613c-10c0.zip/node_modules/commander/",\
         "packageDependencies": [\
           ["commander", "npm:11.1.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["commitlint", [\
-      ["npm:18.4.4", {\
-        "packageLocation": "../../../.yarn/berry/cache/commitlint-npm-18.4.4-81cb0d3cac-10c0.zip/node_modules/commitlint/",\
-        "packageDependencies": [\
-          ["commitlint", "npm:18.4.4"],\
-          ["@commitlint/cli", "npm:18.4.4"],\
-          ["@commitlint/types", "npm:18.4.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7864,7 +7852,6 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.2.18"],\
           ["@typescript-eslint/eslint-plugin", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:6.17.0"],\
           ["@typescript-eslint/parser", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:6.17.0"],\
-          ["commitlint", "npm:18.4.4"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:14.0.4"],\
           ["eslint-config-prettier", "virtual:0c035783dc92fafa074838dbe84c632ed62f6c615342076815c8201281eae5813d4e44761463bfc9651cee257eb08816b854f2bd68db8146999de7a57c5c2307#npm:9.1.0"],\
