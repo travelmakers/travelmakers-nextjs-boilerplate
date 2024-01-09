@@ -1,0 +1,9 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "yarn lint --cache",
+    "prettier --write"
+  ],
+  "*.scss": [
+    "yarn stylelint"
+  ]
+}
