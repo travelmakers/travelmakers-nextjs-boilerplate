@@ -6,3 +6,4 @@ package-lock.json
 yarn.lock
 react-app-env.d.ts
 reportWebVitals.ts
+next.config.js
