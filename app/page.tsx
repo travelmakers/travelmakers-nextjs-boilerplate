@@ -5,6 +5,7 @@ import Image from 'next/image';
 const Home = () => {
   return (
     <main className={styles.main}>
+      <h1 className={'sr-only'}>home</h1>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
