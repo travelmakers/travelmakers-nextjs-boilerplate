@@ -1,0 +1,13 @@
+// 모바일 먼저 접근법 (Mobile First Approach)
+@mixin mobile() {
+  @media (width <= 767px) {
+    @content;
+  }
+}
+
+// 데스크톱과 태블릿
+@mixin desktop() {
+  @media (width >= 768px) {
+    @content;
+  }
+}

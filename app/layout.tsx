@@ -1,8 +1,10 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '@/styles/global.scss';
 
-const inter = Inter({ subsets: ['latin'] });
+import clsx from 'clsx';
+
+import { pretendardFont, notoSerifFont, notoSansKr } from './fonts';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -11,8 +13,15 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="ko"
+      className={clsx(
+        pretendardFont.variable,
+        notoSerifFont.variable,
+        notoSansKr.variable
+      )}
+    >
+      <body>{children}</body>
     </html>
   );
 };
