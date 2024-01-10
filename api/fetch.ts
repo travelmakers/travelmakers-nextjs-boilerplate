@@ -1,7 +1,3 @@
-import { BASE_URL } from '@/api/config';
-import { getUserClientSession } from '@/utils/session/getUserClientSession';
-import { getUserServerSession } from '@/utils/session/getUserServerSession';
-
 interface ApiResponse<T> {
   data: T;
 }
@@ -9,10 +5,10 @@ interface ApiResponse<T> {
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 const initOptions = async (method: HttpMethod, options: object = {}) => {
-  const isServer = typeof window === 'undefined';
-  const session = isServer
-    ? await getUserServerSession()
-    : getUserClientSession();
+  // const isServer = typeof window === 'undefined';
+  // const session = isServer
+  //   ? await getUserServerSession()
+  //   : getUserClientSession();
 
   const _options = {
     headers: {
@@ -22,12 +18,12 @@ const initOptions = async (method: HttpMethod, options: object = {}) => {
     ...options,
   };
 
-  if (session) {
-    const userSession = session.session;
-    const accessToken = userSession?.user?.accessToken;
-
-    _options.headers.Authorization = `Bearer ${accessToken}`;
-  }
+  // if (session) {
+  //   const userSession = session.session;
+  //   const accessToken = userSession?.user?.accessToken;
+  //
+  //   _options.headers.Authorization = `Bearer ${accessToken}`;
+  // }
 
   return _options;
 };
@@ -40,8 +36,9 @@ const innerFetch = async (
   try {
     console.log('api', 'innerFetch');
     const _options = await initOptions(method, options);
-    const response = await fetch(`${BASE_URL}${url}`, _options);
-    console.log('api', `${BASE_URL}${url}`);
+    const response = await fetch(`${url}`, _options);
+    // const response = await fetch(`${BASE_URL}${url}`, _options);
+    console.log('api', `${url}`);
 
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);
