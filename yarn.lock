@@ -1491,6 +1491,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/react-query-next-experimental@npm:^5.17.9":
+  version: 5.17.9
+  resolution: "@tanstack/react-query-next-experimental@npm:5.17.9"
+  peerDependencies:
+    "@tanstack/react-query": ^5.17.9
+    next: ^13 || ^14
+    react: ^18.0.0
+  checksum: 7c09a00e4eede3460869871ecb252fef6e716c6f6e1076cd0dcd9816a6fb7f4b69aaa32f0b147f0bf485089a6af02b2ff95c89bfae8523292cef94e8b9cae690
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query@npm:^5.17.1":
   version: 5.17.1
   resolution: "@tanstack/react-query@npm:5.17.1"
@@ -9812,6 +9823,7 @@ __metadata:
     "@tanstack/eslint-plugin-query": "npm:^5.17.1"
     "@tanstack/react-query": "npm:^5.17.1"
     "@tanstack/react-query-devtools": "npm:^5.17.1"
+    "@tanstack/react-query-next-experimental": "npm:^5.17.9"
     "@testing-library/jest-dom": "npm:^6.2.0"
     "@testing-library/react": "npm:^14.1.2"
     "@types/node": "npm:^20"
