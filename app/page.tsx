@@ -1,4 +1,4 @@
-import { fetchMainCharacter } from '@/api/domains/main';
+import { queryFetchMainCharacter } from '@/api/queries/main';
 import HomeComponent from '@/app/view';
 import HydratePage from '@/components/basic/HydratePage';
 import getQueryClient from '@/utils/query/getQueryClient';
@@ -6,11 +6,7 @@ import getQueryClient from '@/utils/query/getQueryClient';
 const Home = async () => {
   const queryClient = getQueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ['fetchMainCharacter'],
-    queryFn: async () => {
-      const result = await fetchMainCharacter();
-      return result;
-    },
+    ...queryFetchMainCharacter(),
   });
 
   return (

@@ -1,11 +1,14 @@
 'use client';
 import styles from './page.module.scss';
 
-import { useFetchMainCharacter } from '@/api/queries/main';
+import { queryFetchMainCharacter } from '@/api/queries/main';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 
 const HomeComponent = () => {
-  const { data } = useFetchMainCharacter();
+  const { data } = useQuery({
+    ...queryFetchMainCharacter(),
+  });
   return (
     <main className={styles.main}>
       {JSON.stringify(data)}
