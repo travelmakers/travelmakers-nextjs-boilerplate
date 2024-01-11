@@ -2,6 +2,9 @@ name: Coverage report
 
 on: pull_request
 
+permissions:
+  pull-requests: write
+  contents: read
 
 jobs:
   coverage:
@@ -10,5 +13,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: artiomtr/jest-coverage-report-action@v1.3
         with:
+          package-manager: yarn
           github-token: ${{ secrets.GITHUB_TOKEN }}
           #   threshold: 80 # optional parameter
