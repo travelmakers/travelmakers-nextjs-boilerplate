@@ -1,5 +1,11 @@
 name: Build project and run Lighthouse CI
-on: [push]
+
+on: pull_request
+
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   lhci:
     name: Lighthouse CI
@@ -27,9 +33,36 @@ jobs:
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
           NEXT_PUBLIC_BASE_QA_URL: ${{ secrets.NEXT_PUBLIC_BASE_QA_URL }}
           NEXTAUTH_URL: http://localhost:3000
-      - name: run Lighthouse CI
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        run: |
-          npm install -g @lhci/cli@0.8.x
-          lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
+
+      - name: Audit URLs using Lighthouse
+        id: lighthouse_audit
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            http://localhost:3000/
+          budgetPath: './.github/lighthouse/budget.json'
+          configPath: './lighthouserc.js'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Format lighthouse score
+        id: format_lighthouse_score
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const lighthouseCommentMaker = require('./.github/lighthouse/lighthouseCommentMaker.js');
+
+            const lighthouseOutputs = {
+              manifest: ${{ steps.lighthouse_audit.outputs.manifest }},
+              links: ${{ steps.lighthouse_audit.outputs.links }}
+            };
+
+            const comment = lighthouseCommentMaker({ lighthouseOutputs });
+            core.setOutput("comment", comment);
+
+      - name: Add Lighthouse stats as comment
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: lighthouse
+          message: ${{ steps.format_lighthouse_score.outputs.comment }}
