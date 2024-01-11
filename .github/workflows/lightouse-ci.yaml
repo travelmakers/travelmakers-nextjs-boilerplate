@@ -1,0 +1,35 @@
+name: Build project and run Lighthouse CI
+on: [push]
+jobs:
+  lhci:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 19.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.8.1
+#      - name: Setup Sentry CLI
+#        uses: mathieu-bour/setup-sentry-cli@v1
+#        with:
+#          version: latest # optional if 'latest'
+#          url: https://sentry.io/ # optional if you are using https://sentry.io
+#          token: ${{ SECRETS.SENTRY_TOKEN }} # from GitHub secrets
+#          organization: tm-test-rr
+#          project: javascript-nextjs
+      - name: yarn
+        run: |
+          yarn install --immutable
+      - name: yarn build
+        run: yarn build
+        env:
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_BASE_QA_URL: ${{ secrets.NEXT_PUBLIC_BASE_QA_URL }}
+          NEXTAUTH_URL: http://localhost:3000
+      - name: run Lighthouse CI
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: |
+          npm install -g @lhci/cli@0.8.x
+          lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
