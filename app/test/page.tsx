@@ -1,42 +1,27 @@
 'use client';
 import { Suspense } from 'react';
 
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { queryFetchMainCharacter2 } from '@/api/queries/main';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 
-function getBaseURL() {
-  return 'https://api.sampleapis.com';
-}
-const baseUrl = getBaseURL();
-function useWaitQuery(props: { wait: number }) {
-  const query = useSuspenseQuery({
-    queryKey: ['wait', props.wait],
-    queryFn: async () => {
-      const path = `/codingresources/codingResources`;
-      const url = baseUrl + path;
-
-      const res: string = await (
-        await fetch(url, {
-          cache: 'no-store',
-        })
-      ).json();
-      return res;
-    },
+const MyComponent = () => {
+  const { data } = useSuspenseQuery({
+    ...queryFetchMainCharacter2(),
   });
-
-  return [query.data as string, query] as const;
-}
-
-const MyComponent = (props: { wait: number }) => {
-  const [data] = useWaitQuery(props);
 
   return <div>result: {JSON.stringify(data)}</div>;
 };
 
 const MyPage = () => {
+  const { data } = useQuery({
+    ...queryFetchMainCharacter2(),
+  });
+
   return (
     <>
+      {JSON.stringify(data)}
       <Suspense fallback={<div>waiting 100....</div>}>
-        <MyComponent wait={100} />
+        <MyComponent />
       </Suspense>
     </>
   );

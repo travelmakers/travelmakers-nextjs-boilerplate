@@ -33,8 +33,18 @@ const providers = [
       // You can also use the `req` object to obtain additional parameters
       // (i.e., the request IP address)
       console.log('credentials', credentials);
-      // Return null if user data could not be retrieved
-      return null;
+
+      const user = { id: '1', name: 'J Smith', email: 'jsmith@example.com' };
+
+      if (user) {
+        // Any object returned will be saved in `user` property of the JWT
+        return user;
+      } else {
+        // If you return null then an error will be displayed advising the user to check their details.
+        return null;
+
+        // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+      }
     },
   }),
 ];
@@ -46,7 +56,7 @@ export const authOptions: NextAuthOptions = {
   session: { strategy: 'jwt' },
   // NOTE: custom login page
   pages: {
-    signIn: '/auth/login',
+    signIn: '/auth/signin',
   },
   providers,
   callbacks: {

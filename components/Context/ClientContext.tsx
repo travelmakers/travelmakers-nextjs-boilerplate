@@ -10,7 +10,6 @@ interface Props extends PropsWithChildren {
   session: Session | null;
 }
 
-// eslint-disable-next-line @next/next/no-async-client-component
 const ClientContext: React.FC<Props> = async ({ session, children }) => {
   return (
     <AuthContext session={session}>

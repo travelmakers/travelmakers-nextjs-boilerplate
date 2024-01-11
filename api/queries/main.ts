@@ -14,3 +14,12 @@ export const queryFetchMainCharacter = () =>
       return result;
     },
   });
+
+export const queryFetchMainCharacter2 = () =>
+  queryOptions({
+    queryKey: ['fetchMainCharacter2'],
+    queryFn: async () => {
+      const result = await fetchMainCharacter();
+      return result;
+    },
+  });

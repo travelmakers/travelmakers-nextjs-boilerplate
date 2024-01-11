@@ -1,8 +1,13 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 
-export function getUserClientSession() {
+export async function getUserClientSession() {
+  const session = await getSession();
+  return { session };
+}
+
+export const useClientSession = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data, status } = useSession();
   const session = data;
@@ -11,4 +16,4 @@ export function getUserClientSession() {
     session,
     status,
   };
-}
+};

@@ -1,15 +1,18 @@
+import { getUserClientSession } from '@/utils/session/getUserClientSession';
+import { getUserServerSession } from '@/utils/session/getUserServerSession';
+import type { Session } from 'next-auth';
+
 interface ApiResponse<T> {
   data: T;
 }
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-const initOptions = async (method: HttpMethod, options: object = {}) => {
-  // const isServer = typeof window === 'undefined';
-  // const session = isServer
-  //   ? await getUserServerSession()
-  //   : getUserClientSession();
-
+const initOptions = (
+  method: HttpMethod,
+  session: Session | null,
+  options: object = { headers: {} }
+) => {
   const _options = {
     headers: {
       Authorization: '',
@@ -18,12 +21,12 @@ const initOptions = async (method: HttpMethod, options: object = {}) => {
     ...options,
   };
 
-  // if (session) {
-  //   const userSession = session.session;
-  //   const accessToken = userSession?.user?.accessToken;
-  //
-  //   _options.headers.Authorization = `Bearer ${accessToken}`;
-  // }
+  if (session) {
+    const accessToken = session.user?.email;
+    if (accessToken) {
+      _options.headers.Authorization = `Bearer ${accessToken}`;
+    }
+  }
 
   return _options;
 };
@@ -34,11 +37,14 @@ const innerFetch = async (
   options?: object
 ) => {
   try {
-    console.log('api', 'innerFetch');
-    const _options = await initOptions(method, options);
+    const isServer = typeof window === 'undefined';
+
+    const userSession = isServer
+      ? await getUserServerSession()
+      : await getUserClientSession();
+
+    const _options = initOptions(method, userSession.session, options);
     const response = await fetch(`${url}`, _options);
-    // const response = await fetch(`${BASE_URL}${url}`, _options);
-    console.log('api', `${url}`);
 
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);
@@ -46,7 +52,7 @@ const innerFetch = async (
 
     return { data: await response.json() };
   } catch (error) {
-    console.log('api', 'innerFetch', 'error');
+    console.log('api', 'innerFetch', 'error', error);
     throw error;
   }
 };

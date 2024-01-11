@@ -9,6 +9,7 @@ const HomeComponent = () => {
   const { data } = useQuery({
     ...queryFetchMainCharacter(),
   });
+
   return (
     <main className={styles.main}>
       {JSON.stringify(data)}
