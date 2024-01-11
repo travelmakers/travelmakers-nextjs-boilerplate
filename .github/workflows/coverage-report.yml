@@ -10,9 +10,7 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: artiomtr/jest-coverage-report-action@v1.3
+      - uses: actions/checkout@v1
+      - uses: artiomtr/jest-coverage-report-action@v2
         with:
-          package-manager: yarn
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          #   threshold: 80 # optional parameter
