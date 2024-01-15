@@ -66,7 +66,7 @@
       { "properties": "never", "ignoreDestructuring": false }
     ],
     // 사용하지 않는 변수는 에러를 발생시킵니다.
-    "no-unused-vars": "error",
+    "no-unused-vars": ["error", { "args": "none" }],
     // import 경로가 잘못된 경우 경고를 활성화합니다.
     "import/no-unresolved": ["error", { "ignore": ["^@/"] }],
     "@typescript-eslint/consistent-type-imports": [
@@ -76,8 +76,6 @@
         "disallowTypeAnnotations": false
       }
     ],
-    // 일관적인 인터페이스 이름 지정 (I 접두사 사용)
-//    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }],
     // 일관된 화살표 함수 괄호: 화살표 함수에 대해 일관적인 괄호 사용을 적용합니다.
     "arrow-parens": ["error", "always"],
     // import 순서 규칙

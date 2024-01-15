@@ -2,7 +2,7 @@ declare module '@api/user' {
   import type { User } from 'next-auth';
 
   export interface IUser extends User {
-    id: number;
+    id?: number;
     name: string;
     email: string;
   }
