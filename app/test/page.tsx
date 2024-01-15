@@ -1,25 +1,17 @@
 'use client';
 import { Suspense } from 'react';
 
-import { queryFetchMainCharacter2 } from '@/api/queries/main';
-import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+import useMainCharacterViewModel from '@/app/test/hooks/useMainCharacterViewModel';
 
 const MyComponent = () => {
-  const { data } = useSuspenseQuery({
-    ...queryFetchMainCharacter2(),
-  });
+  const { dataMainCharacter } = useMainCharacterViewModel();
 
-  return <div>result: {JSON.stringify(data)}</div>;
+  return <div>result: {JSON.stringify(dataMainCharacter)}</div>;
 };
 
 const MyPage = () => {
-  const { data } = useQuery({
-    ...queryFetchMainCharacter2(),
-  });
-
   return (
     <>
-      {JSON.stringify(data)}
       <Suspense fallback={<div>waiting 100....</div>}>
         <MyComponent />
       </Suspense>

@@ -1,14 +1,18 @@
 'use client';
 import { useEffect } from 'react';
 
-import useUserInfo from '@/hooks/useUserInfo';
+import useMainCharacterViewModel from '@/hooks/useMainCharacterViewModel';
 import { useClientSession } from '@/utils/session/getUserClientSession';
 import { signIn, signOut } from 'next-auth/react';
 
 const SignIn = () => {
   const user = useClientSession();
-  const { setUserInfo, userInfo, deleteUserInfo } = useUserInfo();
+  const {
+    dataMainCharacter,
+    userStore: { userInfo, setUserInfo, deleteUserInfo },
+  } = useMainCharacterViewModel();
 
+  console.log('dataMainCharacter', dataMainCharacter);
   useEffect(() => {
     if (user.status === 'authenticated') {
       user.session?.user ? setUserInfo(user.session.user) : deleteUserInfo();
