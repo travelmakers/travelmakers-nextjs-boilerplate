@@ -1,27 +1,12 @@
-/* eslint-disable import/no-duplicates */
+import type { IUser } from '@api/user';
 
-/* eslint-disable no-unused-vars */
-import { IUser } from '@hotel/api/user';
-import 'next-auth';
-import NextAuth from 'next-auth';
-import * as auth from 'next-auth';
-
-// import * as client from 'next-auth/client'
-// import 'next-auth/client'
+import type { DefaultSession } from 'next-auth';
 
 declare module 'next-auth' {
-  export * from 'next-auth';
-  export type InitOptions = auth.InitOptions;
-  export default NextAuth;
+  /**
+   * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
+   */
   export interface Session {
-    user?: IUser | null;
-  }
-}
-
-declare module 'next-auth/client' {
-  export * from 'next-auth/client';
-
-  export interface Session {
-    user?: IUser | null;
+    user: IUser & DefaultSession['user'];
   }
 }

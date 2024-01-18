@@ -1,72 +1,110 @@
-// .eslintrc.json
 {
   "env": {
+    // 전역 변수 사용을 정의합니다. 추가하지 않으면 ESLint 규칙에 걸리게 됩니다.
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
-  // "parser": "@babel/eslint-parser",
-  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": [
+    "node_modules/",
+    ".pnp.cjs",
+    ".pnp.loader.cjs",
+    "public/"
+  ],
   "extends": [
+    "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
-    "plugin:cypress/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:prettier/recommended"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "parser": "@typescript-eslint/parser", // ESLint 파서를 지정합니다.
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true // JSX를 파싱할 수 있습니다.
     },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+    "ecmaVersion": "latest", // Modern ECMAScript를 파싱할 수 있습니다.
+    "sourceType": "module" // import, export를 사용할 수 있습니다.
   },
   "plugins": [
     "react",
-    "react-hooks",
     "@typescript-eslint",
+    "@tanstack/query",
     "prettier",
     "import"
   ],
-  "rules": {
-    "react-hooks/exhaustive-deps": [
-      "warn",
-      {
-        "additionalHooks": "useRecoilCallback"
+  "overrides": [
+    {
+      "files": [
+        "src/hooks/**/**/*.test.ts?(x)"
+      ],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off"
       }
-    ],
-    "react/jsx-no-useless-fragment": 0,
-    "import/no-extraneous-dependencies": "warn",
-    "import/order": 0,
-    "import/prefer-default-export": "off",
-    "import/extensions": 0,
-    "import/no-unresolved": 0,
-    "arrow-body-style": "error",
-    "prefer-arrow-callback": "off",
-    "no-var": "error",
-    "no-dupe-keys": "error",
-    "react/prop-types": "off",
+    }
+  ],
+  "rules": {
+    "no-useless-catch": "off",
+    "no-use-before-define": "off",
     "react/function-component-definition": [
       2,
       {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
+        "namedComponents": "arrow-function"
       }
     ],
     "@typescript-eslint/no-explicit-any": "error",
-    "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": 0,
-    "react/prefer-stateless-function": 0,
-    "react/jsx-filename-extension": 0,
-    "react/jsx-one-expression-per-line": 0,
-    "no-nested-ternary": 0
+    // undefined로 확인되는 값에서 optional chanining에 대한 경고를 활성화한다(에러x)
+    "no-unsafe-optional-chaining": 1,
+    // camelCase를 강제합니다.
+    "camelcase": [
+      "error",
+      { "properties": "never", "ignoreDestructuring": false }
+    ],
+    // 사용하지 않는 변수는 에러를 발생시킵니다.
+    "no-unused-vars": ["error", { "args": "none" }],
+    // import 경로가 잘못된 경우 경고를 활성화합니다.
+    "import/no-unresolved": ["error", { "ignore": ["^@/"] }],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": false
+      }
+    ],
+    // 일관된 화살표 함수 괄호: 화살표 함수에 대해 일관적인 괄호 사용을 적용합니다.
+    "arrow-parens": ["error", "always"],
+    // import 순서 규칙
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", ["parent", "sibling"], "index"],
+        "pathGroups": [
+          {
+            "pattern": "angular",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ],
+    // 'React' must be in scope when using JSX 에러 해결 (Next.js)
+    "react/react-in-jsx-scope": "off",
+    // ts파일에서 tsx구문 허용 (Next.js)
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }]
   },
-  "globals": {
-    "React": "writable"
+  "settings": {
+    "react": {
+      "version": "detect" // 현재 사용하고 있는 react 버전을 eslint-plugin-react가 자동으로 감지합니다.
+    }
   }
 }

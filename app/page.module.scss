@@ -1,0 +1,231 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 6rem;
+}
+
+.description {
+  z-index: 2;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  width: 100%;
+  max-width: var(--max-width);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.description a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.description p {
+  position: relative;
+  padding: 1rem;
+  margin: 0;
+  background-color: rgb(var(--callout-rgb) 0.5);
+  border: 1px solid rgb(var(--callout-border-rgb) 0.3);
+  border-radius: var(--border-radius);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  width: var(--max-width);
+  max-width: 100%;
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  background: rgb(var(--card-rgb) 0);
+  border: 1px solid rgb(var(--card-border-rgb) 0);
+  border-radius: var(--border-radius);
+  transition: background 200ms, border 200ms;
+}
+
+.card span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.card h2 {
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+.card p {
+  max-width: 30ch;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.6;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.center::before {
+  width: 480px;
+  height: 360px;
+  margin-left: -400px;
+  background: var(--secondary-glow);
+  border-radius: 50%;
+}
+
+.center::after {
+  z-index: -1;
+  width: 240px;
+  height: 180px;
+  background: var(--primary-glow);
+}
+
+.center::before,
+.center::after {
+  position: absolute;
+  left: 50%;
+  content: '';
+  filter: blur(45px);
+  transform: translateZ(0);
+}
+
+.logo {
+  position: relative;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: rgb(var(--card-rgb) 0.1);
+    border: 1px solid rgb(var(--card-border-rgb) 0.15);
+  }
+
+  .card:hover span {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .card:hover span {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (width <= 700px) {
+  .content {
+    padding: 4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-bottom: 120px;
+    text-align: center;
+  }
+
+  .card {
+    padding: 1rem 2.5rem;
+  }
+
+  .card h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .center {
+    padding: 8rem 0 6rem;
+  }
+
+  .center::before {
+    height: 300px;
+    transform: none;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .description a {
+    padding: 1rem;
+  }
+
+  .description p,
+  .description div {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .description p {
+    inset: 0 0 auto;
+    align-items: center;
+    padding: 2rem 1rem 1.4rem;
+    background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb) 1),
+      rgb(var(--callout-rgb) 0.5)
+    );
+    background-clip: padding-box;
+    backdrop-filter: blur(24px);
+    border: none;
+    border-bottom: 1px solid rgb(var(--callout-border-rgb) 0.25);
+    border-radius: 0;
+  }
+
+  .description div {
+    inset: auto 0 0;
+    z-index: 1;
+    align-items: flex-end;
+    height: 200px;
+    padding: 2rem;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(var(--background-end-rgb)) 40%
+    );
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (width >= 701px) and (width <= 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
+  }
+
+  .logo {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
