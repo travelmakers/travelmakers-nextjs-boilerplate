@@ -1,5 +1,5 @@
 import { queryFetchMainCharacter } from '@/api/queries/main';
-import { useUserInfoStore } from '@/stores/useUserInfoStore';
+import { useUserInfoStore } from '@/app/test/stores/useUserInfoStore';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 const useMainCharacterViewModel = () => {

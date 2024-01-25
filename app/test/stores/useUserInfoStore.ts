@@ -13,18 +13,23 @@ interface UserInfoActions {
 
 const defaultState = { id: undefined, name: '', email: '' };
 
-export const useUserInfoStore = create<UserInfoState & UserInfoActions>(
-  (set) => ({
-    userInfo: defaultState,
-    setUserInfo: (userInfo: IUser) => {
-      set({ userInfo });
-    },
-    deleteUserInfo: () => {
-      set({ userInfo: defaultState });
-    },
-  })
-);
+const useStore = create<UserInfoState & UserInfoActions>((set) => ({
+  userInfo: defaultState,
+  setUserInfo: (userInfo: IUser) => {
+    set({ userInfo });
+  },
+  deleteUserInfo: () => {
+    set({ userInfo: defaultState });
+  },
+}));
 
-export const initializeUserInfo = (userInfo: IUser) => {
-  useUserInfoStore.setState({ ...defaultState, userInfo });
+const initializeUserInfo = (userInfo: IUser) => {
+  useStore.setState({ ...defaultState, userInfo });
+};
+
+export const useUserInfoStore = () => {
+  return {
+    store: useStore(),
+    initializeUserInfo,
+  };
 };
