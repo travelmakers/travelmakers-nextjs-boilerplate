@@ -1,8 +1,10 @@
 'use client';
+import useMainCharacterViewModel from '@/app/auth/signin/hooks/useMainCharacterViewModel';
 import { useClientSession } from '@/utils/session/useClientSession';
 import { signIn, signOut } from 'next-auth/react';
 
 const ViewComponent = () => {
+  useMainCharacterViewModel();
   const { session } = useClientSession();
 
   return (
