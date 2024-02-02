@@ -6,11 +6,12 @@ const useMainCharacterViewModel = () => {
   const { data: dataMainCharacter } = useQuery({
     ...queryFetchMainCharacter(),
   });
+
   const userStore = useUserInfoStore();
 
   return {
     dataMainCharacter,
-    userStore,
+    ...userStore,
   };
 };
 

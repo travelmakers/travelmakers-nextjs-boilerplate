@@ -1,9 +1,10 @@
 import type { IUser } from '@api/user';
 
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 interface UserInfoState {
-  userInfo: IUser;
+  userInfo?: IUser;
 }
 
 interface UserInfoActions {
@@ -11,25 +12,25 @@ interface UserInfoActions {
   deleteUserInfo: () => void;
 }
 
-const defaultState = { id: undefined, name: '', email: '' };
-
-const useStore = create<UserInfoState & UserInfoActions>((set) => ({
-  userInfo: defaultState,
-  setUserInfo: (userInfo: IUser) => {
-    set({ userInfo });
-  },
-  deleteUserInfo: () => {
-    set({ userInfo: defaultState });
-  },
-}));
+const useAuthStore = create<UserInfoState & UserInfoActions>()(
+  devtools((set) => ({
+    userInfo: undefined,
+    setUserInfo: (userInfo: IUser) => {
+      set({ userInfo });
+    },
+    deleteUserInfo: () => {
+      set({ userInfo: undefined });
+    },
+  }))
+);
 
 const initializeUserInfo = (userInfo: IUser) => {
-  useStore.setState({ ...defaultState, userInfo });
+  useAuthStore.setState((state) => ({ ...state, userInfo }));
 };
 
 export const useUserInfoStore = () => {
   return {
-    store: useStore(),
+    store: useAuthStore(),
     initializeUserInfo,
   };
 };

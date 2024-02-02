@@ -34,3 +34,12 @@ export const mainRoute = <K extends ApiRouteKey>(params: ApiRouteParams<K>) => {
       return '';
   }
 };
+
+export const authRoute = <K extends ApiRouteKey>(params: ApiRouteParams<K>) => {
+  switch (params.key) {
+    case 'auth.session':
+      return '/api/auth/session';
+    default:
+      return '';
+  }
+};
