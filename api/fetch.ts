@@ -1,12 +1,17 @@
-import { getUserClientSession } from '@/utils/session/getUserClientSession';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 import type { Session } from 'next-auth';
+import { getSession } from 'next-auth/react';
 
 interface ApiResponse<T> {
   data: T;
 }
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+
+async function getUserClientSession() {
+  const session = await getSession();
+  return { session };
+}
 
 const initOptions = (
   method: HttpMethod,

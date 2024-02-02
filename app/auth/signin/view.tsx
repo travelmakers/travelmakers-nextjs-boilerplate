@@ -1,5 +1,5 @@
 'use client';
-import { useClientSession } from '@/utils/session/getUserClientSession';
+import { useClientSession } from '@/utils/session/useClientSession';
 import { signIn, signOut } from 'next-auth/react';
 
 const ViewComponent = () => {
